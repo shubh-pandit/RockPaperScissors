@@ -2,6 +2,7 @@
     text-align: center;
     font-family: Arial;
     font-size: 45px;
+    color: darksalmon;
 }
 
 .content{
@@ -9,40 +10,207 @@
     font-family: Arial;
 
 }
+p{
+    color: darksalmon;
+}
+#titleHR{
+    border: 1px solid salmon;
+    width: 70%;
+    margin: 0 auto;
+    
+}
 .RPSImg{
 
     padding-left: 20px;
     padding-top: 20px;
     padding-right: 20px;
     text-align: center;
+    cursor: pointer;
 }
 
 .button1, .button2, .button3{
     padding-left: 30px;
-    padding-top: 70px;
+    padding-top: 50px;
     padding-right: 40px;
     display: inline-block;
+    
 
 }
-img{
+.selected{
+    transform: scale(1.2);
+    border-color:darkblue;
+    
+}
+.Rock,.Paper,.Scissors{
     max-height: 80px;
     max-width: auto;
-    border: 30px;
-    border-style: ;
-    border-radius: 100px;
+    border: 0px;
+    border-radius: 60px;
+    cursor:pointer;
 }
 
 button{
 
-    border-radius: 100px;
-    
+    border-radius: 60px;
+    background-color: lightblue;
+    border: 6px solid lightblue;
+    transition: all 0.5s
     
 }
+
+.displayMove{
+    text-align: center;
+    margin-top: 50px;
+    padding-left: 20px;
+    padding-top: 20px;
+    padding-right: 20px;
+}
+.user{
+    display: inline-block;
+    position: relative;
+    padding-right:70px;
+}
+
+
+.computer{
+    display: inline-block;
+    position: relative;
+}
+
+.opacityChange{
+    opacity:1;
+}
+
+#userplaceholder{
+    max-height: 150px;
+    max-width: auto;
+    border: 30px;
+    border-radius: 100px;
+    position:relative;
+    transition:opacity 0.5s linear;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    
+}
+#userdisprock{
+    max-height: 150px;
+    max-width: auto;
+    border: 30px;
+    border-radius: 100px;
+    position:absolute;
+    opacity:0;
+    transition:opacity 0.5s linear;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+}
+#userdispscissors{
+    max-height: 150px;
+    max-width: auto;
+    border: 30px;
+    border-radius: 100px;
+    position:absolute;
+    opacity:0;
+    transition:opacity 0.5s linear;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+#userdisppaper{
+    max-height: 150px;
+    max-width: auto;
+    border: 30px;
+    border-radius: 100px;
+    position: absolute;
+    opacity:0;
+    transition:opacity 0.5s linear;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+}
+#compResult{
+    max-height: 150px;
+    max-width: auto;
+    border: 30px;
+    border-radius: 100px;
+    opacity:0;
+
+}
+#compplaceholder{
+    max-height: 150px;
+    max-width: auto;
+    border: 30px;
+    border-radius: 100px;
+    position:absolute;
+    transition:opacity 0.5s linear;
+    opacity: 1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+}
+
+
+#compdisprock{
+    max-height: 150px;
+    max-width: auto;
+    border: 30px;
+    border-radius: 100px;
+    position: absolute;
+    opacity:0;
+    transition:opacity 0.5s linear;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+}
+
+#compdispscissors{
+    max-height: 150px;
+    max-width: auto;
+    border: 30px;
+    border-radius: 100px;
+    position: absolute;
+    opacity:0;
+    transition:opacity 0.5s linear;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+#compdisppaper{
+    max-height: 150px;
+    max-width: auto;
+    border: 30px;
+    border-radius: 100px;
+    transition:opacity 0.5s linear;
+    opacity:0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+
+}
+
+
 .Results{
     font-family: Arial;
+    text-align: center;
 }
 body{
-    background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(255,0,0,1));
+    background-color: #181a1b;
 }
 
 
