@@ -2,6 +2,7 @@ var choices = ["rock","paper","scissors"];
 
 var prevPlayerMove = null
 var prevComputerMove = null
+var flag = true
 function computerPlay(){
 
     return choices[Math.floor((Math.random() * 3))];
@@ -77,6 +78,13 @@ function resetGame(playerMove,computerMove){
     btns.forEach((button)=>{
         button.classList.remove('selected');
     });
+
+    const textContainer = document.querySelector('#res');
+    if(flag)
+        textContainer.classList.remove('fadeAnim1');
+    else
+        textContainer.classList.remove('fadeAnim2');
+    textContainer.textContent = '';
 }
 
 function gameInit(playerMove){
@@ -91,11 +99,14 @@ function gameInit(playerMove){
     prevPlayerMove = playerMove;
     prevComputerMove = computerMove;
 }
-
 function printResult(results, computerMove){
 
     const container = document.querySelector('#res');
+    container.classList.add('fadeAnim');
+
     container.textContent = 'Computer played ' + computerMove +', so you ' + results +'!';
+    var newNode = container.cloneNode(true);
+    container.parentNode.replaceChild(newNode, container);
 
 }
 
