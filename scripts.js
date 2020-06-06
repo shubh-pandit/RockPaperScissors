@@ -43,6 +43,8 @@ function imageSelectUser(playerMove){
     const placeHolderContainer = document.querySelector('#userplaceholder');
     placeHolderContainer.style.opacity = "0";
     container.style.opacity = "1"
+    container.classList.add('rotateRight');
+    container.style.transform = 'rotate(90deg)';
 
 }
 
@@ -51,6 +53,8 @@ function imageSelectComp(computerMove){
     const placeHolderContainer = document.querySelector('#compplaceholder');
     placeHolderContainer.style.opacity = "0";
     container.style.opacity = "1"
+    container.classList.add('rotateLeft');
+    container.style.transform = 'rotate(-90deg)';
 }
 
 function resetGame(playerMove,computerMove){
@@ -61,11 +65,13 @@ function resetGame(playerMove,computerMove){
     const compPlaceHolderContainer = document.querySelector('#compplaceholder'); 
     compPlaceHolderContainer.style.opacity = "1";
     compContainer.style.opacity = "0"
+    compContainer.classList.remove('rotateLeft');
 
     const userContainer = document.querySelector('#userdisp' + playerMove);
     const userPlaceHolderContainer = document.querySelector('#userplaceholder');
     userPlaceHolderContainer.style.opacity = "1";
     userContainer.style.opacity = "0"
+    userContainer.classList.remove('rotateRight');
 
     const btns = document.querySelectorAll('button');
     btns.forEach((button)=>{
