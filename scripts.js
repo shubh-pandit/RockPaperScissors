@@ -3,6 +3,8 @@ var choices = ["rock","paper","scissors"];
 var prevPlayerMove = null
 var prevComputerMove = null
 var flag = true
+var userScore = 0;
+var compScore = 0;
 function computerPlay(){
 
     return choices[Math.floor((Math.random() * 3))];
@@ -67,6 +69,15 @@ function computerMoveSelectionDelay(){
 
 }
 
+function resetScore(){
+    userScore = 0;
+    compScore = 0;
+    var x = document.getElementById("scoreTable").rows[1].cells;
+    x[0].innerHTML = userScore.toString();
+    x[1].innerHTML = compScore.toString();
+
+}
+
 function imageSelectUser(playerMove){
     const container = document.querySelector('#userdisp' + playerMove);
     const placeHolderContainer = document.querySelector('#userplaceholder');
@@ -118,8 +129,6 @@ function resetGame(playerMove,computerMove){
 function updateScoreTable(results){
 
     var x = document.getElementById("scoreTable").rows[1].cells;
-    let userScore = parseInt(x[0].innerHTML);
-    let compScore = parseInt(x[1].innerHTML);
 
     if(results == "win"){
         userScore++;
@@ -131,10 +140,6 @@ function updateScoreTable(results){
 
     }
     else{
-        userScore++;
-        x[0].innerHTML = userScore.toString();
-        compScore++;
-        x[1].innerHTML = compScore.toString();
 
     }
 }
@@ -168,8 +173,15 @@ const btns = document.querySelectorAll('button');
 
 btns.forEach((button) => {
     button.addEventListener('click', (e) => {
-        gameInit(button.value);
-        button.classList.add('selected');
+        if(button.parentElement.parentElement.className == "RPSImg"){
+            gameInit(button.value);
+            button.classList.add('selected');
+        }
+        else{
+            resetScore();
+            resetGame(prevPlayerMove, prevComputerMove);
+            button.classList.add('selected');
+        }
         
 
     });
