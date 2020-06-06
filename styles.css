@@ -298,7 +298,8 @@ tr:hover {
     background-color: black;}
 
 body{
-    background-color: #515152;
+    background-image: linear-gradient(to bottom right, #717572, #282b29);
+    height: 100vh;
 }
 
 
