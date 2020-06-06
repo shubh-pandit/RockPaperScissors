@@ -38,6 +38,34 @@ function playRound(playerMove,computerMove){
             return "lose";
     }
 }
+function imageAnimateComputer(){
+    const placeHolderContainer = document.querySelector('#compplaceholder');
+    console.log('HERE');
+    for (i = 0; i < choices.length; i++){
+        const container = document.querySelector('#compdisp' + choices[i]);
+        placeHolderContainer.style.opacity = "0";
+        container.style.opacity = "1";
+        placeHolderContainer.style.opacity = "1";
+        container.style.opacity = "0";
+
+
+    }
+    
+    
+
+}
+function computerMoveSelectionDelay(){
+
+    const container = document.querySelector('#res');
+    container.classList.add('fadeAnim');
+    
+    container.textContent = 'Computer is making its move!';
+    var newNode = container.cloneNode(true);
+    imageAnimateComputer();
+    container.parentNode.replaceChild(newNode, container);
+
+
+}
 
 function imageSelectUser(playerMove){
     const container = document.querySelector('#userdisp' + playerMove);
@@ -60,7 +88,7 @@ function imageSelectComp(computerMove){
 
 function resetGame(playerMove,computerMove){
     const resultContainer = document.querySelector('#res');
-    resultContainer.textContent = '';
+    resultContainer.textContent = '                             ';
 
     const compContainer = document.querySelector('#compdisp' + computerMove);
     const compPlaceHolderContainer = document.querySelector('#compplaceholder'); 
@@ -84,7 +112,31 @@ function resetGame(playerMove,computerMove){
         textContainer.classList.remove('fadeAnim1');
     else
         textContainer.classList.remove('fadeAnim2');
-    textContainer.textContent = '';
+    textContainer.textContent = '                     ';
+}
+
+function updateScoreTable(results){
+
+    var x = document.getElementById("scoreTable").rows[1].cells;
+    let userScore = parseInt(x[0].innerHTML);
+    let compScore = parseInt(x[1].innerHTML);
+
+    if(results == "win"){
+        userScore++;
+        x[0].innerHTML = userScore.toString();
+    }
+    else if(results == "lose"){
+        compScore++;
+        x[1].innerHTML = compScore.toString();
+
+    }
+    else{
+        userScore++;
+        x[0].innerHTML = userScore.toString();
+        compScore++;
+        x[1].innerHTML = compScore.toString();
+
+    }
 }
 
 function gameInit(playerMove){
@@ -94,8 +146,10 @@ function gameInit(playerMove){
         resetGame(prevPlayerMove,prevComputerMove);
     results = playRound(playerMove, computerMove);
     imageSelectUser(playerMove);
+    computerMoveSelectionDelay();
     imageSelectComp(computerMove);
     printResult(results, computerMove);
+    updateScoreTable(results);
     prevPlayerMove = playerMove;
     prevComputerMove = computerMove;
 }
